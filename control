@@ -1,0 +1,8 @@
+Package: com.yourcompany.ios-usb-framework
+Name: iOS USB Framework
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: USB goodies for iOS.
+Maintainer: rms
+Author: rms
+Section: Development

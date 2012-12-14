@@ -1,18 +1,17 @@
-TARGETS=usb_ls usb_cp
-CC:=gcc
-CFLAGS=-O2 -g
-LDFLAGS=-lusb-1.0
+GO_EASY_ON_ME = 1
 
-%.o: %.c $(DEPS)
-	$(CC) -c -o $@ $< $(CFLAGS)
+include $(THEOS)/makefiles/common.mk
 
-usb_ls: dosfs.o ls.o
-	$(CC) -o usb_ls dosfs.o ls.o $(LDFLAGS)
+ADDITIONAL_CFLAGS = -I../../libusb/include -I./dosfs
+ADDITIONAL_LDFLAGS = -L../../libusb/lib -lusb-1.0
 
-usb_cp: dosfs.o export.o
-	$(CC) -o usb_ls dosfs.o export.o $(LDFLAGS)
+TOOL_NAME = usb_ls usb_cp
 
-all:	$(TARGETS)
+usb_ls_FILES = ls.c
+usb_ls_SUBPROJECTS = dosfs
 
-clean:
-	rm -f *.o $(TARGETS)
+usb_cp_FILES = ls.c
+usb_cp_SUBPROJECTS = dosfs
+
+include $(THEOS_MAKE_PATH)/subproject.mk
+include $(THEOS_MAKE_PATH)/tool.mk

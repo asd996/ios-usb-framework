@@ -3,12 +3,12 @@ USB Mass Storage Read/LS
 
 This example code works on Linux/MacOS/iPhone OS Systems.
 
-This code can use the following environment variables:
- - USB_DEVICE=<vid>:<pid>
+Add "export TARGET=native" for building for the current platform. Default is building for the iPhone.
 
-On a Mac/iPhone system use `ioreg -p IOUSB' to find the
-VID/PID for the specified USB device, or use `lsusb' to
-find the device identifier on a Linux system.
+This code can use the following environment variables:
+	- USB_DEVICE=<vid>:<pid>
+
+On a Mac/iPhone system use `ioreg -p IOUSB -c IOUSBDevice' to find the VID/PID for the specified USB device, or use `lsusb' to find the device identifier on a Linux system.
 
 Usage:
 ======
@@ -25,10 +25,8 @@ Usage:
     usb_cp will copy the [file] from the USB storage device to the
     main device.
 
-Compiling
-=========
+Compiling:
+======
 
-Use make usb_cp to build usb_cp for a generic Linux system.
-
-Use make usb_ls to build usb_ls for a generic Linux system.
-
+- Get Theos (git://github.com/DHowett/theos)
+- make
