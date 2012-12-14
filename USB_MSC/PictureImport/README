@@ -1,0 +1,34 @@
+USB Mass Storage Read/LS
+========================
+
+This example code works on Linux/MacOS/iPhone OS Systems.
+
+This code can use the following environment variables:
+ - USB_DEVICE=<vid>:<pid>
+
+On a Mac/iPhone system use `ioreg -p IOUSB' to find the
+VID/PID for the specified USB device, or use `lsusb' to
+find the device identifier on a Linux system.
+
+Usage:
+======
+
+ usb_ls:
+    usb_ls [dir]
+
+    usb_ls will list the current directory for specified [dir]
+    from the USB mass storage device.
+
+ usb_cp
+    usb_cp [file] 
+
+    usb_cp will copy the [file] from the USB storage device to the
+    main device.
+
+Compiling
+=========
+
+Use make usb_cp to build usb_cp for a generic Linux system.
+
+Use make usb_ls to build usb_ls for a generic Linux system.
+
